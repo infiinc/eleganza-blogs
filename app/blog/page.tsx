@@ -27,11 +27,11 @@ export default async function BlogIndexPage() {
         </p>
       </div>
       <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-8 gap-4 mb-5">
-        {blogs.map((blog) => (
-          <div className="shadow-xl rounded">
-          <BlogCard {...blog} slug={blog.slug} key={blog.slug} />
-          </div>
-        ))}
+      {blogs.map((blog) => (
+        <div key={blog.slug} className="shadow-xl rounded"> 
+          <BlogCard {...blog} slug={blog.slug} />
+        </div>
+      ))}
       </div>
     </div>
     </>

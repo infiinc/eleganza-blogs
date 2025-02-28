@@ -1,15 +1,12 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import { ModeToggle } from "@/components/theme-toggle";
-import { GithubIcon, TwitterIcon, CommandIcon } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Anchor from "./anchor";
-import { SheetLeftbar } from "./leftbar";
-import { page_routes } from "@/lib/routes-config";
 import { SheetClose } from "@/components/ui/sheet";
-import AlgoliaSearch from "./algolia-search";
 
 export const NAVLINKS = [
   // {
@@ -76,7 +73,7 @@ export function Navbar() {
                   size: "icon",
                 })}
               >
-                <TwitterIcon className="h-[1.1rem] w-[1.1rem]" />
+                {/* <TwitterIcon className="h-[1.1rem] w-[1.1rem]" /> */}
               </Link>
               <ModeToggle />
             </div>
@@ -89,12 +86,15 @@ export function Navbar() {
 
 export function Logo() {
   const { theme } = useTheme();
+
   return (
     <Link href="/" className="flex items-center">
-      <img
+      <Image
         src={theme === "dark" ? "/eleganza.png" : "/eleganza-dark.png"}
         alt="Eleganza Logo"
-        className="w-42 h-8"
+        width={168} // Adjust width accordingly
+        height={32} // Adjust height accordingly
+        priority // Ensures the logo loads faster
       />
     </Link>
   );
